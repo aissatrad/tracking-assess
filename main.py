@@ -22,12 +22,14 @@ db: List[User] = [
 ]
 
 
-@app.get("/")
+@app.get("/users")
 async def root():
     return db
 
 
-@app.post("/")
+@app.post("/add")
 async def new_user(user: User):
     db.append(user)
     return {"id": user.id}
+
+
